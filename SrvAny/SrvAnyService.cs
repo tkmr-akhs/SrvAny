@@ -27,7 +27,6 @@ namespace SrvAny
             }
             this.srvAnyEventLog.Source = "SrvAnyService";
             this.srvAnyEventLog.Log = "System";
-            this.srvAnyEventLog.WriteEntry($"{this.ServiceName} was initialized.", EventLogEntryType.Information);
         }
 
         protected override void OnStart(string[] args)
@@ -38,7 +37,8 @@ namespace SrvAny
             this.task = this.Start(commandLineArgs[1], token);
         }
 
-        private async Task Start(string prog_path, CancellationToken token) {
+        private async Task Start(string prog_path, CancellationToken token)
+        {
             await Task.Run(() =>
             {
                 Process proc = null;
@@ -74,15 +74,14 @@ namespace SrvAny
                     bool is_closed = false;
                     try
                     {
-                        if (!(proc is null))
-                        {
-                            is_closed = proc.CloseMainWindow();
-                        }
+                        is_closed = proc.CloseMainWindow();
 
                         if (!is_closed)
                         {
-                            proc.Kill();
+                            Thread.Sleep(5000);
                         }
+
+                        if (!(proc.HasExited)) proc.Kill();
 
                         this.srvAnyEventLog.WriteEntry($"{this.ServiceName} was stopped normally.", EventLogEntryType.Information);
                     }
