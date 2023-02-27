@@ -5,7 +5,7 @@ SrvAny is a program that allows you to run any program as a service on Windows. 
 To install SrvAny, simply download the executable file and place it in a directory on your Windows system. There is no need to install any additional software or drivers.
 
 # Usage
-You can use the sc.exe command-line tool to create the service. For example, to create a service called "MyService" that runs the program "C:\MyProgram.exe", you would run the following command:
+You can create a service using the sc command. To create a service named 'SomeApp Service' that runs the program 'C:\Program Files\SomeApp\SomeApp.exe' with the command-line argument 'C:\test.txt', you would execute the following command:
 
 ```
 sc create SrvAnyTest binPath= """C:\Program Files\SrvAny\SrvAny.exe"" ""C:\Program Files\SomeApp\SomeApp.exe"" C:\test.txt" type= own DisplayName= "SomeApp Service" start= auto
