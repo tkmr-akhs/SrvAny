@@ -14,7 +14,7 @@ sc create SrvAnyTest binPath= """C:\Program Files\SrvAny\SrvAny.exe"" ""C:\Progr
 After creating the service, you can start, stop, and manage it just like any other Windows service.
 
 # License
-SrvAny is released under the MIT license. See the LICENSE file for more information.
+SrvAny is released under the MIT license.
 
 # Disclaimer
 SrvAny is provided as-is, without any warranty or support. Use at your own risk.
